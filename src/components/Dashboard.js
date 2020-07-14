@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import PollCardList from './PollCardList'
 
 
 class Dashboard extends Component {
@@ -8,18 +9,20 @@ class Dashboard extends Component {
     return (
       <div className="dashboard">
 
-        <div className="dashboard__btn--toggle">
+        <div className="dashboard__btns">
           <button>Unanswered Polls</button>
           <button>Answered Polls</button>
         </div>
         <div className="dashboard__polls">
 
           <div className="dashboard__polls--unanswered">
-            UNANSWERED POLLS
+            <h2>Unanswered</h2>
+            <PollCardList pollCards={this.props.unansweredPolls} />
           </div>
 
           <div className="dashboard__polls--answered">
-            ANSWERED POLLS
+            <h2>Answered</h2>
+            <PollCardList pollCards={this.props.answeredPolls} />
           </div>
         </div>
       </div>
