@@ -21,8 +21,6 @@ function mapStateToProps({ questions, users }, { id }) {
   const authorID = users[questions[id].author].id;
   const preview = questions[id].optionOne['text'].substr(0, 12) + '...'
 
-  // console.log('author:', authorID)
-
   return {
     authorID,
     preview,

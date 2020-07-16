@@ -2,7 +2,7 @@ import React from 'react'
 import PollCardPreview from './PollCardPreview'
 
 
-function PollCardList(props) {
+export default function PollCardList(props) {
   return (
     <div className="poll-card-list">
 
@@ -17,5 +17,3 @@ function PollCardList(props) {
     </div>
   )
 }
-
-export default PollCardList

@@ -2,7 +2,7 @@ const logger = (store) => (next) => (action) => {
   console.group(action.type)
     console.log(`Action fired: ${action}`)
     const returnValue = next(action)
-    console.log(`New state: ${store.getState()}`)
+    console.log('New state: ', store.getState())
   console.groupEnd()
   return returnValue;
 }
