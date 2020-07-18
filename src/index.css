@@ -111,6 +111,20 @@ li {
 }
 
 
+/*ANSWER POLL*/
+.answer-poll {}
+
+.input-radio__label {
+  display: block;
+  margin: 0 auto 20px;
+  width: 100%;
+}
+
+.input-radio__label-text {}
+
+.input-radio {
+  font-size: 1.2em;
+}
 
 
 
