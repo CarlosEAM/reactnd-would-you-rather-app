@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { handleAddQuestion } from '../actions/questions'
+import { handleAddQuestion } from '../actions/shared'
 import PollCardHeader from './PollCardHeader'
 
 
@@ -22,7 +22,7 @@ class PollCardCreator extends Component {
 
     // info to save new question
     const { questionOne, questionTwo } = this.state;
-    const { dispatch } = this.props;
+    const { dispatch, authedUser } = this.props;
 
     // save new question
     dispatch(handleAddQuestion(questionOne, questionTwo))
@@ -40,7 +40,7 @@ class PollCardCreator extends Component {
     return (
       <div className="poll-card-creator">
         <h2 className="poll-card-creator__header">Create a New Poll</h2>
-        <PollCardHeader authorID={this.props.authorID} />
+        <PollCardHeader authorID={this.props.authedUser} />
         <form className="form" onSubmit={this.handleSubmit}>
           <label className="input-text__label">
             <span className="input-text__label-text">Question One</span>
@@ -83,7 +83,7 @@ class PollCardCreator extends Component {
 
 function mapStateToProps({ authedUser }) {
   return {
-    authorID: authedUser
+    authedUser
   }
 }
 

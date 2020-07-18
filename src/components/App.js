@@ -18,7 +18,7 @@ class App extends Component {
     return (
       <div className="App">
         <LoadingBar />
-        {this.props.loading === true ? <h3>LOADING</h3> : <AnswerPoll />}
+        {this.props.loading === true ? <h3>LOADING</h3> : <PollCardCreator />}
       </div>
     )
   }

@@ -1,5 +1,6 @@
 import {
   RECEIVE_USERS,
+  ADD_USER_QUESTION,
   UPDATE_USER_ANSWER,
 } from '../actions/users'
 
@@ -10,6 +11,14 @@ export default function users(state = {}, action) {
       return {
         ...state,
         ...action.users,
+      }
+    case ADD_USER_QUESTION:
+      return {
+        ...state,
+        [action.authedUser]: {
+          ...state[action.authedUser],
+          questions: state[action.authedUser].questions.concat(action.qid)
+        }
       }
     case UPDATE_USER_ANSWER:
       const { authedUser, qid, answer } = action
