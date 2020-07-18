@@ -15,10 +15,19 @@ export function getInitialData() {
   }));
 }
 
+/**
+ * @description Save new questions to backend
+ * @param {object} question - with properties: author, optionOneText, optionTwoText
+ * @return {object} - with properties: id, author, optionOne, optionTwo, timestamp
+ */
 export function saveQuestion(question) {
-  _saveQuestion(question);
+  return _saveQuestion(question);
 }
 
+/**
+ * @description Save the answer to a poll question to the backend
+ * @param {object} - with properties: authedUser, qid, answer=['optionOne|optionTwo']
+ */
 export function saveQuestionAnswer(question) {
-  _saveQuestionAnswer(question);
+  return _saveQuestionAnswer(question);
 }
