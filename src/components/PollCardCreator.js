@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 import { handleAddQuestion } from '../actions/shared'
 import PollCardHeader from './PollCardHeader'
 
@@ -9,6 +10,7 @@ class PollCardCreator extends Component {
   state = {
     questionOne: '',
     questionTwo: '',
+    toHome: false,
   }
 
   handleChange = (e) => {
@@ -31,12 +33,19 @@ class PollCardCreator extends Component {
     this.setState({
       questionOne: '',
       questionTwo: '',
+      toHome: true,
     })
   }
 
   render() {
-    const { questionOne, questionTwo } = this.state;
+    const { questionOne, questionTwo, toHome } = this.state;
     const disabled = (questionOne === '' || questionTwo === '') ? true : false;
+
+    // TODO: redirect to home when form submit
+    if (toHome === true) {
+      return <Redirect to="/" />
+    }
+
     return (
       <div className="poll-card-creator">
         <h2 className="poll-card-creator__header">Create a New Poll</h2>
