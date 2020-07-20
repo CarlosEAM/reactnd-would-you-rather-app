@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import PollCardHeader from './PollCardHeader'
+
+// Custom components
+import PollHeader from './PollHeader'
 
 
 class PollCardPreview extends Component {
   render() {
     return (
       <div className="poll-card-preview">
-        <PollCardHeader authorID={this.props.authorID} />
+        <PollHeader authorID={this.props.authorID} />
         <div>
           <p>{this.props.preview}</p>
         </div>

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import PollCardList from './PollCardList'
+
+// Custom components
+import PollPreview from './PollPreview'
 
 
 class Dashboard extends Component {
@@ -16,12 +18,34 @@ class Dashboard extends Component {
 
           <div className="dashboard__polls--unanswered">
             <h2>Unanswered</h2>
-            <PollCardList pollCards={this.props.unansweredPolls} />
+
+            <div className="poll-card-list">
+
+              <ul>
+                {this.props.unansweredPolls.map(cardID => (
+                  <li key={cardID}>
+                    <PollPreview id={cardID} />
+                  </li>
+                ))}
+              </ul>
+
+            </div>
           </div>
 
           <div className="dashboard__polls--answered">
             <h2>Answered</h2>
-            <PollCardList pollCards={this.props.answeredPolls} />
+
+            <div className="poll-card-list">
+
+              <ul>
+                {this.props.answeredPolls.map(cardID => (
+                  <li key={cardID}>
+                    <PollPreview id={cardID} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+
           </div>
         </div>
       </div>

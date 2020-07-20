@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+
+// Custom components
 import UserResultCard from './UserResultCard'
 
 

@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleUpdateQuestion } from '../actions/questions'
 import { updateUserAnswer } from '../actions/users'
-import PollCardHeader from './PollCardHeader'
+
+// Custom components
+import PollHeader from './PollHeader'
 
 
 // Container component
@@ -35,7 +37,7 @@ class AnswerPoll extends Component {
     const disabled = answer === '' ? true : false;
     return (
       <div className="answer-poll">
-        <PollCardHeader authorID={this.props.question.author} />
+        <PollHeader authorID={this.props.question.author} />
         <form className="form" onSubmit={this.handleSubmit}>
           <label className="input-radio__label">
             <input

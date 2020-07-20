@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { handleAddQuestion } from '../actions/shared'
-import PollCardHeader from './PollCardHeader'
+
+// Custom components
+import PollHeader from './PollHeader'
 
 
 // Controlled component container with two inputs
@@ -48,7 +50,7 @@ class PollCardCreator extends Component {
     return (
       <div className="poll-card-creator">
         <h2 className="poll-card-creator__header">Create a New Poll</h2>
-        <PollCardHeader authorID={this.props.authedUser} />
+        <PollHeader authorID={this.props.authedUser} />
         <form className="form" onSubmit={this.handleSubmit}>
           <label className="input-text__label">
             <span className="input-text__label-text">Question One</span>
