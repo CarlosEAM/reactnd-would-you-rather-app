@@ -26,7 +26,7 @@ class PollCardCreator extends Component {
 
     // info to save new question
     const { questionOne, questionTwo } = this.state;
-    const { dispatch, authedUser } = this.props;
+    const { dispatch } = this.props;
 
     // save new question
     dispatch(handleAddQuestion(questionOne, questionTwo))
