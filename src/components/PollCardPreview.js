@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import PollCardHeader from './PollCardHeader'
 
 
@@ -11,7 +12,11 @@ class PollCardPreview extends Component {
         <div>
           <p>{this.props.preview}</p>
         </div>
-        <button>VIEW</button>
+        <button>
+          <Link to={`/questions/${this.props.id}`}>
+            VIEW
+          </Link>
+        </button>
       </div>
     )
   }

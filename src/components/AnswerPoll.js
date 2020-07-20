@@ -72,8 +72,6 @@ class AnswerPoll extends Component {
 }
 
 function mapStateToProps({ authedUser, users, questions }, props) {
-  console.log("DECRATE: ", props.match.params)
-  // TODO: Pass in question id from previous component
   const { question_id } = props.match.params;
 
   const question = questions[question_id]

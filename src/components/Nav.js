@@ -12,7 +12,7 @@ export default function Nav(props) {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/Create Poll" activeClassName="active">
+          <NavLink to="/add" activeClassName="active">
             Create Poll
           </NavLink>
         </li>

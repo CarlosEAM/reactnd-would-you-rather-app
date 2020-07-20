@@ -41,7 +41,6 @@ class PollCardCreator extends Component {
     const { questionOne, questionTwo, toHome } = this.state;
     const disabled = (questionOne === '' || questionTwo === '') ? true : false;
 
-    // TODO: redirect to home when form submit
     if (toHome === true) {
       return <Redirect to="/" />
     }
