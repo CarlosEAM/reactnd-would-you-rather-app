@@ -21,7 +21,7 @@ export default function users(state = {}, action) {
         }
       }
     case UPDATE_USER_ANSWER:
-      const { authedUser, qid, answer } = action
+      const { authedUser, qid, answer } = action.qAnswer
       return {
         ...state,
         [authedUser]: {
