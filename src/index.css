@@ -40,16 +40,7 @@ img {
 
 .dashboard__polls--unanswered {}
 
-
-/*POLL CARD LIST*/
 .poll-card-list {}
-
-
-/*POLL CARD PREVIEW*/
-.poll-card-preview {
-  margin: 16px auto;
-  padding: 8px;
-}
 
 
 /*POLL CARD HEADER*/
@@ -76,7 +67,14 @@ img {
 .poll-card-header h2 {}
 
 
-/*CREATE NEW POLL*/
+/*POLL CARD PREVIEW*/
+.poll-card-preview {
+  margin: 16px auto;
+  padding: 8px;
+}
+
+
+/*NEW POLL*/
 .poll-card-creator {
   margin: 0 auto;
   width: 80%;
@@ -114,8 +112,12 @@ img {
 }
 
 
-/*ANSWER POLL*/
-.answer-poll {}
+/*POLL DETAIL*/
+.poll-details {}
+
+
+/*POLL QUESTION*/
+.poll-question {}
 
 .input-radio__label {
   display: block;
@@ -127,6 +129,59 @@ img {
 
 .input-radio {
   font-size: 1.2em;
+}
+
+
+/*POLL ANSWER*/
+.poll-answer {
+  margin: 0 auto;
+  max-width: 680px;
+}
+
+.answer-option {
+  display: grid;
+  grid-template-columns: 10% 40% 40% 10%;
+  grid-template-rows: auto;
+  margin-bottom: 32px;
+}
+
+.answer-option__avatar {
+  align-self: center;
+  grid-column: 1 / 2;
+  grid-row: 1 / span 2;
+  padding: 4px;
+}
+.answer-option__avatar img {
+  border: 2px solid #ccc;
+  border-radius: 50px;
+}
+
+.answer-option__text {
+  border: 1px solid #000;
+  font-size: 1.2em;
+  grid-column: 2 / span 2;
+  grid-row: 1 / 2;
+  padding: 4px 4px 4px 12px;
+  text-align: left;
+}
+
+.answer-option__vote-total {
+  border: 1px solid #000;
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+.answer-option__vote-total p {
+  margin-bottom: 4px;
+}
+.answer-option__vote-total span {
+  font-size: 1.4em;
+}
+
+.answer-option__vote-percentage {
+  border: 1px solid #000;
+  font-size: 1.6em;
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
 }
 
 

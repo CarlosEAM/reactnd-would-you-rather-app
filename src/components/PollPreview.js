@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
@@ -6,22 +6,20 @@ import { Link } from 'react-router-dom'
 import PollHeader from './PollHeader'
 
 
-class PollCardPreview extends Component {
-  render() {
-    return (
-      <div className="poll-card-preview">
-        <PollHeader authorID={this.props.authorID} />
-        <div>
-          <p>{this.props.preview}</p>
-        </div>
-        <button>
-          <Link to={`/questions/${this.props.id}`}>
-            VIEW
-          </Link>
-        </button>
+function PollCardPreview(props) {
+  return (
+    <div className="poll-card-preview">
+      <PollHeader authorID={props.authorID} />
+      <div>
+        <p>{props.preview}</p>
       </div>
-    )
-  }
+      <button>
+        <Link to={`/questions/${props.id}`}>
+          VIEW
+        </Link>
+      </button>
+    </div>
+  )
 }
 
 function mapStateToProps({ questions, users }, { id }) {
