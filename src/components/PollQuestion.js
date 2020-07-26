@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { handleUpdateQuestion } from '../actions/questions'
-import { updateUserAnswer } from '../actions/users'
-import PollCardHeader from './PollCardHeader'
+import { Redirect } from 'react-router-dom'
+import { handleAnswer } from '../actions/shared'
+
+// Custom components
+import PollHeader from './PollHeader'
 
 
-// Container component
-class AnswerPoll extends Component {
+class PollQuestion extends Component {
   state = {
     answer: '',
+    toPollDetails: false,
   }
 
   handleChange = (e) => {
@@ -21,21 +23,29 @@ class AnswerPoll extends Component {
     e.preventDefault();
 
     const { answer } = this.state;
-    const { dispatch, authedUser } = this.props;
+    const { dispatch } = this.props;
     const { id } = this.props.question;
 
-    // Update the store with answer
-    dispatch(handleUpdateQuestion(id, answer))
-    // Update current user with their answer
-    dispatch(updateUserAnswer(authedUser, id, answer))
+    dispatch(handleAnswer(id, answer));
+
+    this.setState({
+      answer: '',
+      toPollDetails: true,
+    })
   }
 
   render() {
-    const { answer } = this.state;
+    const { answer, toPollDetails } = this.state;
     const disabled = answer === '' ? true : false;
+
+    // Check if answer was submitted and redirect to poll details
+    if (toPollDetails === true) {
+      return <Redirect to={'/questions/' + this.props.question.id} />
+    }
+
     return (
-      <div className="answer-poll">
-        <PollCardHeader authorID={this.props.question.author} />
+      <div className="poll-question">
+        <PollHeader authorID={this.props.question.author} />
         <form className="form" onSubmit={this.handleSubmit}>
           <label className="input-radio__label">
             <input
@@ -72,13 +82,13 @@ class AnswerPoll extends Component {
 }
 
 function mapStateToProps({ authedUser, users, questions }, props) {
-  const { question_id } = props.match.params;
+  const { qid } = props;
+  const question = questions[qid]
 
-  const question = questions[question_id]
   return {
     authedUser,
     question,
   }
 }
 
-export default connect(mapStateToProps)(AnswerPoll)
+export default connect(mapStateToProps)(PollQuestion);

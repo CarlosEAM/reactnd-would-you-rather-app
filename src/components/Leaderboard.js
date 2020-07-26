@@ -1,5 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
+
+// Custom components
 import UserResultCard from './UserResultCard'
 
 
@@ -19,7 +21,9 @@ function Leaderboard(props) {
 }
 
 function mapStateToProps({ users }) {
+  // score has a list of users sorted by their score, high to low
   const scores = Object.keys(users).map(key => {
+    // returns an object with the user id and their total score
     return {
       id: key,
       score: Object.keys(users[key].answers).length + users[key].questions.length,

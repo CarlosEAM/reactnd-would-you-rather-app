@@ -1,6 +1,18 @@
-import { getInitialData, saveQuestion } from '../utils/api'
-import { receiveUsers, addUserQuestion } from '../actions/users'
-import { receiveQuestions, addQuestion } from '../actions/questions'
+import {
+  getInitialData,
+  saveQuestion,
+  saveQuestionAnswer
+} from '../utils/api'
+import {
+  receiveUsers,
+  addUserQuestion,
+  updateUserAnswer
+} from '../actions/users'
+import {
+  receiveQuestions,
+  addQuestion,
+  updateQuestion
+} from '../actions/questions'
 import { setAuthedUser } from '../actions/authedUser'
 import { showLoading, hideLoading } from 'react-redux-loading'
 
@@ -30,6 +42,7 @@ export function handleAddQuestion(optionOne, optionTwo) {
   return (dispatch, getState) => {
     // get the current logged in user
     const { authedUser } = getState();
+    dispatch(showLoading())
     return saveQuestion({
       author: authedUser,
       optionOneText: optionOne,
@@ -41,6 +54,35 @@ export function handleAddQuestion(optionOne, optionTwo) {
       // add new question to store, questions and users
       dispatch(addQuestion(newQuestion))
       dispatch(addUserQuestion(authedUser, newQuestion.id))
+      dispatch(hideLoading())
     });
+  }
+}
+
+/**
+ * @description Update the question and user vote
+ * param {string} qid - the id of this question
+ * param {string} answer - either 'optionOne' or 'optionTwo'
+ */
+export function handleAnswer(qid, answer) {
+  return (dispatch, getState) => {
+    const { authedUser } = getState();
+    const updateObj = {
+      authedUser,
+      qid,
+      answer
+    }
+    dispatch(showLoading())
+    // Update the database first
+    return saveQuestionAnswer(updateObj)
+      .catch((e) => {
+        console.warn('Could not update the answer this question. Try again');
+      }).then(() => {
+        // Questions action update
+        dispatch(updateQuestion(updateObj));
+        // Users action update
+        dispatch(updateUserAnswer(updateObj))
+        dispatch(hideLoading())
+      })
   }
 }

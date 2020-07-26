@@ -9,12 +9,10 @@ export function receiveUsers(users) {
   }
 }
 
-export function updateUserAnswer(authedUser, qid, answer) {
+export function updateUserAnswer(qAnswer) {
   return {
     type: UPDATE_USER_ANSWER,
-    authedUser,
-    qid,
-    answer,
+    qAnswer,
   }
 }
 

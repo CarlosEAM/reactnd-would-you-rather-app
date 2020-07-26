@@ -4,11 +4,14 @@ import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { handleInitialData } from '../actions/shared'
 import LoadingBar from 'react-redux-loading'
-import Dashboard from './Dashboard'
-import PollCardCreator from './PollCardCreator'
-import AnswerPoll from './AnswerPoll'
-import Leaderboard from './Leaderboard'
+
+// custom components
 import Nav from './Nav'
+import Dashboard from './Dashboard'
+import NewPoll from './NewPoll'
+import PollDetail from './PollDetail'
+import Leaderboard from './Leaderboard'
+
 
 
 class App extends Component {
@@ -28,8 +31,8 @@ class App extends Component {
               ? <h3>LOADING</h3>
               : <div>
                   <Route path="/" exact component={Dashboard} />
-                  <Route path="/questions/:question_id" component={AnswerPoll} />
-                  <Route path="/add" component={PollCardCreator} />
+                  <Route path="/questions/:question_id" component={PollDetail} />
+                  <Route path="/add" component={NewPoll} />
                   <Route path="/leaderboard" component={Leaderboard} />
                 </div>}
           </div>
