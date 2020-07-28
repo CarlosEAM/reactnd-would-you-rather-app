@@ -6,12 +6,12 @@ import { handleInitialData } from '../actions/shared'
 import LoadingBar from 'react-redux-loading'
 
 // custom components
+import Login from './Login'
 import Nav from './Nav'
 import Dashboard from './Dashboard'
 import NewPoll from './NewPoll'
 import PollDetail from './PollDetail'
 import Leaderboard from './Leaderboard'
-
 
 
 class App extends Component {
@@ -31,6 +31,7 @@ class App extends Component {
               ? <h3>LOADING</h3>
               : <div>
                   <Route path="/" exact component={Dashboard} />
+                  <Route path="/login" exact component={Login} />
                   <Route path="/questions/:question_id" component={PollDetail} />
                   <Route path="/add" component={NewPoll} />
                   <Route path="/leaderboard" component={Leaderboard} />

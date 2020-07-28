@@ -246,6 +246,25 @@ img {
   align-self: center;
 }
 
+/*LOGIN*/
+.login {}
+
+.login__avatar {
+  margin: 0 auto;
+  width: 120px;
+}
+
+.select-login {
+  display: block;
+  font-size: 1.2em;
+  margin: 0 auto 32px;
+  padding: 4px 8px;
+}
+
+.select-login__label {}
+
+.select-login__option {}
+
 
 
 
