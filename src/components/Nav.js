@@ -2,6 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 
+// TODO: Create a logout button
 export default function Nav(props) {
   return (
     <nav className="nav">

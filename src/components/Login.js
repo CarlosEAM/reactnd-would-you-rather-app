@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { setAuthedUser } from '../actions/authedUser'
+import { Redirect } from 'react-router-dom'
+import Avatar_Placeholder from '../images/Avatar_Placeholder.png'
 
 
 class Login extends Component {
@@ -15,17 +18,23 @@ class Login extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    // TODO: take the user and update AUTH
-    console.log("LOGIN WITH: ", e.target.value)
+    this.props.dispatch(setAuthedUser(this.state.user))
   }
 
   render() {
     const { user } = this.state;
-    const { users } = this.props;
+    const { users, location, isLoggedIn } = this.props;
+
+    // If user already logged in redirect to referer page
+    if (isLoggedIn) {
+      return <Redirect to={location.state.referer} />
+    }
+
     const disabled = (user === 'dummy') ? true : false;
+
     return (
       <div className="login">
-        <img src={users[user].avatarURL} className="login__avatar" alt={`Avatar for ${user}`} />
+        <img src={Avatar_Placeholder} className="login__avatar" alt="avatar placeholder in brown" />
         <form className="form" onSubmit={this.handleSubmit}>
           <label className="select-login__label">
             <p>Select a user to continue:</p>
@@ -35,7 +44,6 @@ class Login extends Component {
               onChange={this.handleChange}
             >
               {
-                //TODO: FILL IN WITH THE USERS AVAILABLE
                 Object.keys(users).map(username => {
                   const user = users[username]
                   return (
@@ -54,7 +62,7 @@ class Login extends Component {
             type="submit"
             disabled={disabled}
           >
-            Login
+            Sign in
           </button>
         </form>
       </div>
@@ -62,21 +70,17 @@ class Login extends Component {
   }
 }
 
-function mapStateToProps({ users }) {
-  // Create dummy user as placeholder and add to current list of users
-  const dummy = {
-    'dummy': {
-      avatarURL: 'https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png',
-      id: 'dummy',
-      name: 'none',
-    }
-  }
-
+function mapStateToProps({ users, authedUser }) {
+  // Create dummy user as placeholder
   return {
     users: {
       ...users,
-      ...dummy
-    }
+      'dummy': {
+        id: 'dummy',
+        name: 'none'
+      }
+    },
+    isLoggedIn: authedUser,
   }
 }
 

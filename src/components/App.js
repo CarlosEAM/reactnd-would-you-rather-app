@@ -8,6 +8,7 @@ import LoadingBar from 'react-redux-loading'
 // custom components
 import Login from './Login'
 import Nav from './Nav'
+import PrivateRoute from './PrivateRoute'
 import Dashboard from './Dashboard'
 import NewPoll from './NewPoll'
 import PollDetail from './PollDetail'
@@ -22,30 +23,30 @@ class App extends Component {
 
   render() {
     return (
+
       <Router>
         <Fragment>
           <LoadingBar />
           <div className="App">
             <Nav />
-            {this.props.loading === true
-              ? <h3>LOADING</h3>
-              : <div>
-                  <Route path="/" exact component={Dashboard} />
-                  <Route path="/login" exact component={Login} />
-                  <Route path="/questions/:question_id" component={PollDetail} />
-                  <Route path="/add" component={NewPoll} />
-                  <Route path="/leaderboard" component={Leaderboard} />
-                </div>}
+              <div>
+                <PrivateRoute exact path="/" component={Dashboard} />
+                <Route path="/login" exact component={Login} />
+                <PrivateRoute path="/questions/:question_id" component={PollDetail} />
+                <PrivateRoute path="/add" component={NewPoll} />
+                <PrivateRoute path="/leaderboard" component={Leaderboard} />
+              </div>
           </div>
         </Fragment>
       </Router>
+
     )
   }
 }
 
 function mapStateToProps({ authedUser }) {
   return {
-    loading: authedUser === null
+    authedUser
   }
 }
 
