@@ -14,6 +14,7 @@ import NewPoll from './NewPoll'
 import PollDetail from './PollDetail'
 import Leaderboard from './Leaderboard'
 
+// TODO: LOGOUT FLOW
 
 class App extends Component {
   componentDidMount() {

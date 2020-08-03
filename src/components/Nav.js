@@ -1,8 +1,10 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
+// Custom components
+import UserNavBox from './UserNavBox'
 
-// TODO: Create a logout button
+
 export default function Nav(props) {
   return (
     <nav className="nav">
@@ -17,12 +19,13 @@ export default function Nav(props) {
             Create Poll
           </NavLink>
         </li>
+        <li>
           <NavLink to="/leaderboard" activeClassName="active">
             Leaderboard
           </NavLink>
-        <li>
         </li>
       </ul>
+      <UserNavBox />
     </nav>
   )
 }

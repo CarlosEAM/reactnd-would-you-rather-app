@@ -29,6 +29,41 @@ img {
   height: auto;
 }
 
+
+/*USER NAV BOX*/
+.user-nav-box {
+  bottom: 0;
+  padding: 8px;
+  position: fixed;
+  width: 100%;
+}
+
+.user-nav-box--wrapper {
+  align-items: center;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 320px;
+  width: 100%;
+}
+
+.user-nav-box__avatar {
+  width: 40px;
+}
+
+.user-nav-box__username {
+  margin: 0 8px;
+}
+
+.user-nav-box__sign-out {
+  font-size: 1em;
+  margin-left: 32px;
+  padding: 4px 10px;
+}
+
+
+
 /*DASHBOARD*/
 .dashboard {}
 
