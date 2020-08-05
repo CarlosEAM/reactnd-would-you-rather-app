@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+.App {
+  text-align: center;
+}
+
 /*GLOBAL*/
 * {
   box-sizing: border-box;
@@ -29,12 +33,55 @@ img {
   height: auto;
 }
 
+/*MAIN NAVIGATION*/
+.nav {
+  background: #6f7c74;
+  height: 60px;
+  position: relative;
+  z-index: 200;
+}
+
+.main-nav {
+  background: #6f7c74;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  padding: 12px 0;
+  position: fixed;
+  width: 100%;
+}
+
+.main-nav li {
+  padding: 0 8px
+}
+
+.main-nav li a {
+  color: #fffbf7;
+  padding: 8px;
+  text-decoration: none;
+}
+
+.main-nav li a:active {
+  background: #5f5549;
+  box-shadow: 0 0 4px #000 inset;
+}
+
+.main-nav li a:hover {
+  background: #ADA49A;
+}
+
+.active {
+  background: #5f5549;
+}
 
 /*USER NAV BOX*/
 .user-nav-box {
-  bottom: 0;
+  background: #6f7c74;
   padding: 8px;
   position: fixed;
+  top: 0;
   width: 100%;
 }
 
@@ -53,13 +100,26 @@ img {
 }
 
 .user-nav-box__username {
+  color: #fffbf7;
   margin: 0 8px;
 }
 
 .user-nav-box__sign-out {
+  background: none;
+  border: 1px solid #fffbf7;
+  box-shadow: none;
+  color: #fffbf7;
   font-size: 1em;
   margin-left: 32px;
   padding: 4px 10px;
+}
+
+.user-nav-box__sign-out:active {
+  background: #5f5549;
+}
+
+.user-nav-box__sign-out:hover {
+  cursor: pointer;
 }
 
 
@@ -301,6 +361,28 @@ img {
 .select-login__option {}
 
 
+/*MEDIA QUERIES*/
+
+/*table screens*/
+@media screen and (min-width: 767px) {
+  /*APP NAVIGATION*/
+  .nav {
+    align-items: center;
+    display: flex;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  .main-nav {
+    justify-content: center;
+    position: relative;
+    flex-grow: 2;
+  }
+  .user-nav-box {
+    position: relative;
+    flex-grow: 1;
+  }
+}
 
 
 /*TEMP STYLES*/

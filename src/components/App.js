@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import './App.css';
 import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { handleInitialData } from '../actions/shared'
@@ -14,7 +13,7 @@ import NewPoll from './NewPoll'
 import PollDetail from './PollDetail'
 import Leaderboard from './Leaderboard'
 
-// TODO: LOGOUT FLOW
+// TODO: CSS LAYOUT, TO make prety
 
 class App extends Component {
   componentDidMount() {
