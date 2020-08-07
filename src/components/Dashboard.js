@@ -1,73 +1,81 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 // Custom components
 import PollPreview from './PollPreview'
 
 
-function Dashboard(props) {
-  const authed = props.authedUser;
+class Dashboard extends Component {
+  state = {
+    pollVisible: 'unanswered',
+  }
 
-  return authed !== null
-    ? (
-        <div className="dashboard">
-          <div className="dashboard__btns">
-            <button>Unanswered Polls</button>
-            <button>Answered Polls</button>
-          </div>
-          <div className="dashboard__polls">
+  // toggle between unanswered and answered polls
+  handleToggle = (viewPoll) => {
+    const { pollVisible } = this.state;
+    // only update state if user selects poll that is not in view
+    if (viewPoll !== pollVisible) {
+      this.setState({
+        pollVisible: viewPoll,
+      })
+    }
+  }
 
-            <div className="dashboard__polls--unanswered">
-              <h2>Unanswered</h2>
+  render() {
+    const authed = this.props.authedUser;
+    const { pollVisible } = this.state;
 
-              <div className="poll-card-list">
+    // return nothing if user not auth to view this page
+    if (authed === null) return null;
 
-                <ul>
-                  {props.unansweredPolls.map(cardID => (
-                    <li key={cardID}>
-                      <PollPreview id={cardID} />
-                    </li>
-                  ))}
-                </ul>
-
-              </div>
-            </div>
-
-            <div className="dashboard__polls--answered">
-              <h2>Answered</h2>
-
-              <div className="poll-card-list">
-
-                <ul>
-                  {props.answeredPolls.map(cardID => (
-                    <li key={cardID}>
-                      <PollPreview id={cardID} />
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-            </div>
+    // Render the answered or unanswered polls depending on state, updated by the buttons
+    return (
+      <div className="dashboard">
+        <div className="dashboard__btns-wrapper">
+          <button
+            onClick={() => this.handleToggle('unanswered')}
+            className={`${pollVisible === 'unanswered' ? 'active' : 'deactive'} dashboard__btns`}
+          >
+            Unanswered Polls
+          </button>
+          <button
+            onClick={() => this.handleToggle('answered')}
+            className={`${pollVisible === 'answered' ? 'active' : 'deactive'} dashboard__btns`}
+          >
+            Answered Polls
+          </button>
+        </div>
+        <div className="dashboard__polls">
+          <h2 className="dashboard__polls-header">{pollVisible}</h2>
+          <div className="dashboard__polls-list">
+            <ul>
+              {this.props[pollVisible].map(cardID => (
+                <li key={cardID}>
+                  <PollPreview id={cardID} />
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-      )
-    : null
+      </div>
+    )
+  }
 }
 
 function mapStateToProps({ authedUser, users, questions }) {
-  let answeredPolls = '', unansweredPolls = '';
+  let answered = '', unanswered = '';
 
   if ( authedUser !== null) {
     // answered polls are taken from the users profile
-    answeredPolls = Object.keys(users[authedUser].answers).sort((a, b) => questions[b].timestamp - questions[a].timestamp)
+    answered = Object.keys(users[authedUser].answers).sort((a, b) => questions[b].timestamp - questions[a].timestamp)
     // filter the questions to find the ones not answered by logged user
-    unansweredPolls = Object.keys(questions).filter(question => !answeredPolls.includes(question)).sort((a, b) => questions[b].timestamp - questions[a].timestamp)
+    unanswered = Object.keys(questions).filter(question => !answered.includes(question)).sort((a, b) => questions[b].timestamp - questions[a].timestamp)
   }
 
   return authedUser !== null
     ? {
-      answeredPolls,
-      unansweredPolls,
+      answered,
+      unanswered,
       authedUser
     }
     : { authedUser }
