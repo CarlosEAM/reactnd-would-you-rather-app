@@ -29,7 +29,7 @@ class App extends Component {
           <LoadingBar />
           <div className="App">
             <Nav />
-              <div>
+              <div className="main-content">
                 <PrivateRoute exact path="/" component={Dashboard} />
                 <Route path="/login" exact component={Login} />
                 <PrivateRoute path="/questions/:question_id" component={PollDetail} />
