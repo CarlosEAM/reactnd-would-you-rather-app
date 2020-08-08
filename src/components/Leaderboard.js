@@ -8,14 +8,16 @@ import UserResultCard from './UserResultCard'
 function Leaderboard(props) {
   return (
     <div className="leaderboard">
-      <h3 className="leaderboard__header">Leaderboard</h3>
-      <ul>
-        {props.scores.map(user => (
-          <li key={user.id}>
-            <UserResultCard userID={user.id} />
-          </li>
-        ))}
-      </ul>
+      <h2 className="leaderboard__header">Leaderboard</h2>
+      <div className="leaderboard__wrapper">
+        <ul>
+          {props.scores.map(user => (
+            <li key={user.id}>
+              <UserResultCard userID={user.id} />
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   )
 }

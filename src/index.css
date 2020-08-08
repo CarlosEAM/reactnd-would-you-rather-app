@@ -365,9 +365,11 @@ img {
 
 /*LEADERBOARD*/
 .leaderboard {
-  margin: 64px auto 0;
-  max-width: 680px;
-  width: 100%;
+  margin-bottom: 100px;
+}
+
+.leaderboard__wrapper {
+  background: #1d6376;
 }
 
 .leaderboard__header {}
@@ -376,6 +378,7 @@ img {
 /*USER RESULT CARD*/
 .grid-item__avatar {
   grid-area: avatar;
+  padding: 4px;
 }
 
 .grid-item__username {
@@ -404,6 +407,7 @@ img {
 }
 
 .user-result-card {
+  background: #7bb9bb;
   border: 1px solid #000;
   display: grid;
   grid-template-columns: 20% 30% 30% 20%;
@@ -450,14 +454,16 @@ img {
 
 /*SHARED STYLES*/
 .dashboard__polls-header,
-.poll-card-creator__header {
+.poll-card-creator__header,
+.leaderboard__header {
   color: #34443b;
   margin: 32px auto;
   text-transform: capitalize;
 }
 
 .poll-question__wrapper,
-.poll-card-creator__wrapper {
+.poll-card-creator__wrapper,
+.leaderboard__wrapper {
   border: 1px solid #94A098;
   border-radius: 8px;
   box-shadow: 0 -4px 12px 2px rgba(227,228,227,.6), 0 4px 14px 2px rgba(148,160,152,.7);
