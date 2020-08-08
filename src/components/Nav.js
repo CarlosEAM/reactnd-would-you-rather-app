@@ -8,7 +8,7 @@ import UserNavBox from './UserNavBox'
 export default function Nav(props) {
   return (
     <nav className="nav">
-      <ul>
+      <ul className="main-nav">
         <li>
           <NavLink to="/" exact activeClassName="active">
             Home

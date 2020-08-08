@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import './App.css';
 import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { handleInitialData } from '../actions/shared'
@@ -14,7 +13,7 @@ import NewPoll from './NewPoll'
 import PollDetail from './PollDetail'
 import Leaderboard from './Leaderboard'
 
-// TODO: LOGOUT FLOW
+// TODO: CSS LAYOUT, TO make prety
 
 class App extends Component {
   componentDidMount() {
@@ -30,7 +29,7 @@ class App extends Component {
           <LoadingBar />
           <div className="App">
             <Nav />
-              <div>
+              <div className="main-content">
                 <PrivateRoute exact path="/" component={Dashboard} />
                 <Route path="/login" exact component={Login} />
                 <PrivateRoute path="/questions/:question_id" component={PollDetail} />

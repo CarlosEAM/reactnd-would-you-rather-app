@@ -53,42 +53,44 @@ class PollCardCreator extends Component {
       ? (
           <div className="poll-card-creator">
             <h2 className="poll-card-creator__header">Create a New Poll</h2>
-            <PollHeader authorID={authedUser} />
-            <form className="form" onSubmit={this.handleSubmit}>
-              <label className="input-text__label">
-                <span className="input-text__label-text">Question One</span>
-                <input
-                  type="text"
-                  placeholder="Type you question here"
-                  value={questionOne}
-                  onChange={this.handleChange}
-                  maxLength={140}
-                  name="questionOne"
-                  id="questionOne"
-                  className="input-text"
-                />
-              </label>
-              <label className="input-text__label">
-                <span className="input-text__label-text">Question Two</span>
-                <input
-                  type="text"
-                  placeholder="Type you question here"
-                  value={questionTwo}
-                  onChange={this.handleChange}
-                  maxLength={140}
-                  name="questionTwo"
-                  id="questionTwo"
-                  className="input-text"
-                />
-              </label>
-              <button
-                className="submit-btn"
-                type="submit"
-                disabled={disabled}
-              >
-                Submit
-              </button>
-            </form>
+            <div className="poll-card-creator__wrapper">
+              <PollHeader authorID={authedUser} />
+              <form className="form" onSubmit={this.handleSubmit}>
+                <label className="input-text__label">
+                  <span className="input-text__label-text">Question One</span>
+                  <input
+                    type="text"
+                    placeholder="Type you question here"
+                    value={questionOne}
+                    onChange={this.handleChange}
+                    maxLength={140}
+                    name="questionOne"
+                    id="questionOne"
+                    className="input-text"
+                  />
+                </label>
+                <label className="input-text__label">
+                  <span className="input-text__label-text">Question Two</span>
+                  <input
+                    type="text"
+                    placeholder="Type you question here"
+                    value={questionTwo}
+                    onChange={this.handleChange}
+                    maxLength={140}
+                    name="questionTwo"
+                    id="questionTwo"
+                    className="input-text"
+                  />
+                </label>
+                <button
+                  className="submit-btn"
+                  type="submit"
+                  disabled={disabled}
+                >
+                  Submit
+                </button>
+              </form>
+            </div>
           </div>
         )
       : null

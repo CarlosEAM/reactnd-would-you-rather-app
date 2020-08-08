@@ -10,12 +10,12 @@ function PollCardPreview(props) {
   return (
     <div className="poll-card-preview">
       <PollHeader authorID={props.authorID} />
-      <div>
+      <div className="poll-card-preview__text">
         <p>{props.preview}</p>
       </div>
-      <button>
+      <button className="poll-card-preview__button">
         <Link to={`/questions/${props.id}`}>
-          VIEW
+          View
         </Link>
       </button>
     </div>
