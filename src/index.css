@@ -171,12 +171,6 @@ img {
 
 .dashboard__polls {}
 
-.dashboard__polls-header {
-  color: #34443b;
-  margin: 32px auto;
-  text-transform: capitalize;
-}
-
 .dashboard__polls-list ul li {
   border-radius: 12px;
   margin-bottom: 32px;
@@ -260,10 +254,7 @@ img {
 
 
 /*NEW POLL*/
-.poll-card-creator {
-  margin: 0 auto;
-  width: 80%;
-}
+.poll-question {}
 
 .poll-card-creator__header {}
 
@@ -298,14 +289,7 @@ img {
 
 
 /*POLL DETAIL*/
-.poll-details {
-  border: 1px solid #94A098;
-  border-radius: 8px;
-  box-shadow: 0 -4px 12px 2px rgba(227,228,227,.6), 0 4px 14px 2px rgba(148,160,152,.7);
-  padding: 12px 8px;
-  margin: 32px auto;
-  max-width: 680px;
-}
+.poll-details {}
 
 
 /*POLL QUESTION*/
@@ -464,6 +448,25 @@ img {
 .select-login__option {}
 
 
+/*SHARED STYLES*/
+.dashboard__polls-header,
+.poll-card-creator__header {
+  color: #34443b;
+  margin: 32px auto;
+  text-transform: capitalize;
+}
+
+.poll-question__wrapper,
+.poll-card-creator__wrapper {
+  border: 1px solid #94A098;
+  border-radius: 8px;
+  box-shadow: 0 -4px 12px 2px rgba(227,228,227,.6), 0 4px 14px 2px rgba(148,160,152,.7);
+  padding: 12px 8px;
+  margin: 32px auto;
+  max-width: 680px;
+}
+
+
 /*MEDIA QUERIES*/
 
 /*small screens*/
@@ -483,6 +486,14 @@ img {
   /*POLL DETAILS*/
   .poll-details {
     margin: 116px auto;
+  }
+
+  /*POLL CREATOR*/
+  .poll-card-creator {
+    margin: 100px auto 0;
+  }
+  .poll-card-creator__wrapper {
+    padding: 12px;
   }
 
   /*APP NAVIGATION*/
