@@ -455,6 +455,7 @@ img {
 /*SHARED STYLES*/
 .dashboard__polls-header,
 .poll-card-creator__header,
+.poll-question__header,
 .leaderboard__header,
 .poll-answer__header {
   color: #34443b;
