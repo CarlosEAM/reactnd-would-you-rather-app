@@ -26,7 +26,7 @@ function UserResultCard(props) {
       </div>
       <div className="user-result-card__item grid-item__score">
         <p>Score</p>
-        <p>{score}</p>
+        <p className="user-result-card__score">{score}</p>
       </div>
     </div>
   )

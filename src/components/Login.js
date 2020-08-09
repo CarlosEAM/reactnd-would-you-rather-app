@@ -34,6 +34,7 @@ class Login extends Component {
 
     return (
       <div className="login">
+        <h1 className="login__header">Would You Rather</h1>
         <img src={Avatar_Placeholder} className="login__avatar" alt="avatar placeholder in brown" />
         <form className="form" onSubmit={this.handleSubmit}>
           <label className="select-login__label">
@@ -58,7 +59,7 @@ class Login extends Component {
             </select>
           </label>
           <button
-            className="submit-btn"
+            className="login-btn"
             type="submit"
             disabled={disabled}
           >

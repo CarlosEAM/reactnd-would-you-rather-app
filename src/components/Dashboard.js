@@ -45,7 +45,7 @@ class Dashboard extends Component {
             Answered Polls
           </button>
         </div>
-        <div className="dashboard__polls">
+        <div>
           <h2 className="dashboard__polls-header">{pollVisible}</h2>
           <div className="dashboard__polls-list">
             <ul>

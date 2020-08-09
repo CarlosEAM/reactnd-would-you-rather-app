@@ -44,7 +44,7 @@ class PollQuestion extends Component {
     }
 
     return (
-      <div className="poll-question">
+      <div>
         <h2 className="poll-question__header">Poll Question</h2>
         <div className="poll-question__wrapper">
           <PollHeader authorID={this.props.question.author} />

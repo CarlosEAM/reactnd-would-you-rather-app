@@ -24,7 +24,7 @@ function PollCardPreview(props) {
 
 function mapStateToProps({ questions, users }, { id }) {
   const authorID = users[questions[id].author].id;
-  const preview = questions[id].optionOne['text'].substr(0, 12) + '...'
+  const preview = questions[id].optionOne['text'].substr(0, 16) + '...'
 
   return {
     authorID,
