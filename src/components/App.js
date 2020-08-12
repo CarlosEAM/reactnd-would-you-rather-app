@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { handleInitialData } from '../actions/shared'
 import LoadingBar from 'react-redux-loading'
 
@@ -12,8 +12,7 @@ import Dashboard from './Dashboard'
 import NewPoll from './NewPoll'
 import PollDetail from './PollDetail'
 import Leaderboard from './Leaderboard'
-
-// TODO: CSS LAYOUT, TO make prety
+import Page404 from './Page404'
 
 class App extends Component {
   componentDidMount() {
@@ -29,13 +28,16 @@ class App extends Component {
           <LoadingBar />
           <div className="App">
             <Nav />
-            <div className="main-content">
-              <PrivateRoute exact path="/" component={Dashboard} />
-              <Route path="/login" exact component={Login} />
-              <PrivateRoute path="/questions/:question_id" component={PollDetail} />
-              <PrivateRoute path="/add" component={NewPoll} />
-              <PrivateRoute path="/leaderboard" component={Leaderboard} />
-            </div>
+              <div className="main-content">
+                <Switch>
+                  <PrivateRoute exact path="/" component={Dashboard} />
+                  <PrivateRoute path="/questions/:question_id" component={PollDetail} />
+                  <PrivateRoute path="/add" component={NewPoll} />
+                  <PrivateRoute path="/leaderboard" component={Leaderboard} />
+                  <Route path="/login" component={Login} />
+                  <PrivateRoute path="*" component={Page404} />
+                </Switch>
+              </div>
           </div>
         </Fragment>
       </Router>

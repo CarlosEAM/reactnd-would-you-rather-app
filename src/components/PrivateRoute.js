@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Route, Redirect } from 'react-router-dom'
 
 
+
 /**
  * @description Check user authentication
  * @param {object} component - the component to render
@@ -24,7 +25,7 @@ function PrivateRoute({ component: Component, authenticated, ...rest }) {
   )
 }
 
-function mapStateToProps({authedUser}) {
+function mapStateToProps({ authedUser, questions }) {
   return {
     authenticated: authedUser,
   }
