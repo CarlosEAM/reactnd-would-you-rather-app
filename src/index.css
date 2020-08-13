@@ -433,6 +433,13 @@ img {
   padding: 8px 16px;
 }
 
+/*404PAGE*/
+.page404__avatar {
+  margin: 0 auto;
+  max-width: 320px;
+  width: 100%;
+}
+
 
 /*SHARED STYLES*/
 .poll-question__wrapper,
@@ -501,8 +508,9 @@ img {
     margin: 100px auto;
   }
 
-  /*POLL CREATOR*/
-  .poll-card-creator {
+  /*POLL CREATOR - PAGE404*/
+  .poll-card-creator,
+  .page404 {
     margin: 100px auto 0;
   }
   .poll-card-creator__wrapper {
