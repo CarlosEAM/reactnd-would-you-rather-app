@@ -388,10 +388,6 @@ img {
   width: 94%;
 }
 
-.user-result-card__item {
-  /*border: 1px solid #000;*/
-}
-
 .grid-item__avatar,
 .grid-item__score {
   align-self: center;
@@ -420,10 +416,6 @@ img {
   padding: 4px 8px;
 }
 
-.select-login__label {}
-
-.select-login__option {}
-
 .login-btn {
   border: 1px solid #B8BEBA;
   border-radius: 8px;
@@ -434,6 +426,11 @@ img {
 }
 
 /*404PAGE*/
+.page404 p {
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+}
 .page404__avatar {
   margin: 0 auto;
   max-width: 320px;

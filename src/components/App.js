@@ -14,6 +14,7 @@ import PollDetail from './PollDetail'
 import Leaderboard from './Leaderboard'
 import Page404 from './Page404'
 
+
 class App extends Component {
   componentDidMount() {
     // request initial data
